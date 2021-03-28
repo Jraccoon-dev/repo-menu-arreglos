@@ -67,26 +67,39 @@ void add_opening(int*& array_list, int* size, int new_element_t) {
 	}
 }
 
-void delete_position(int*& array_list, int* size, int eliminator) {
-	int* temp = new int[*size - 1];
-	if (temp != nullptr) {
-		
-		for (short i = 0; i < *size - 1; i++) {
-			for (short j = 0; j < *size - 1 ; j++) {
-				if (i == (eliminator - 1)) {
-					temp[j] = array_list[i + 1];
-				}
-				else {
-					temp[j] = array_list[i];
-				}
-
-			}
-
+/*
+for (short i = 0; i < eliminator; i++) {
+			temp[i] = array_list[i];
 		}
+		delete &array_list[eliminator];
+
+		for (short i = eliminator; i < *size - 1; i++) {
+			temp[i] = array_list[i];
+		}
+*/
+
+void delete_position(int* array_list, int* size, int eliminator) {
+	int a = *size, i;
+	eliminator--;
+	
+	if (array_list != nullptr) {
+			
+		for ( i = 0; i < a; i++) {
+			if (i == eliminator) {
+				while (i < a) {
+					array_list[i] = array_list[i + 1];
+					i++;
+				}
+				break;
+			}
+		}
+		
 		*size -= 1;
-		if (array_list != nullptr) delete[]array_list;
-		array_list = temp;
+		
+		cout << endl << " El elemento a sido eliminado con exito " << endl;
+			
 	}
+	else cout << "El arreglo no tiene elementos" << endl;
 }
 
 void modify_position(int* array_list, int* size, int modificator) {
@@ -102,7 +115,8 @@ int*  order_major_minor(int* array_list, int* size) {
 	if (array_list != nullptr) {
 		for (short i = 0; i < *size; i++) {
 			for (short j = 0; j < *size - 1; j++) {
-				if (array_list[i] > array_list[j]) {
+				if (array_list[i] > array_list[j]) 
+				{
 					temp = array_list[i];
 					array_list[i] = array_list[j];
 					array_list[j] = temp;

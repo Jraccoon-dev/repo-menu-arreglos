@@ -37,7 +37,9 @@ int main()
 
 			case 4: //Eliminar posicion
 				int eliminator;
-				cout << "Ingrese la posicion a eliminar : " << endl; cin >> eliminator;
+				do {
+					cout << "Ingrese la posicion a eliminar : " << endl; cin >> eliminator;
+				} while (eliminator < 1 ||eliminator > *size + 1);
 				delete_position(array_list, size, eliminator); break;
 
 			case 5: //Modificar posicion 
