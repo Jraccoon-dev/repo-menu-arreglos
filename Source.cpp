@@ -50,7 +50,9 @@ int main()
 
 			case 6: //Insertar en posicion  
 				int add_position;
+				do {
 				cout << "Ingrese la posicion a insertar : " << endl; cin >> add_position;
+				} while (add_position < 1 || add_position > *size + 1);
 				insert_position(array_list, size, add_position); break;
 
 			case 7: //Ordenar de mayor a menor 
