@@ -39,7 +39,7 @@ int main()
 				int eliminator;
 				do {
 					cout << "Ingrese la posicion a eliminar : " << endl; cin >> eliminator;
-				} while (eliminator < 1 ||eliminator > *size + 1);
+				} while (eliminator < 1 ||eliminator > *size + 1);	
 				delete_position(array_list, size, eliminator); break;
 
 			case 5: //Modificar posicion 
